@@ -8,13 +8,13 @@ class VerifyDetailModel {
   VerifyDetailModel.fromJson(Map<String, dynamic> json) {
     status = json['status'];
     message = json['message'];
-    data = json['data'] != null ? new Data.fromJson(json['data']) : null;
+    data = json['data'] != null ? Data.fromJson(json['data']) : null;
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['status'] = this.status;
-    data['message'] = this.message;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['status'] = status;
+    data['message'] = message;
     if (this.data != null) {
       data['data'] = this.data!.toJson();
     }
@@ -29,14 +29,14 @@ class Data {
 
   Data.fromJson(Map<String, dynamic> json) {
     getVeifyDetails = json['GetVeifyDetails'] != null
-        ? new GetVeifyDetails.fromJson(json['GetVeifyDetails'])
+        ? GetVeifyDetails.fromJson(json['GetVeifyDetails'])
         : null;
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    if (this.getVeifyDetails != null) {
-      data['GetVeifyDetails'] = this.getVeifyDetails!.toJson();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    if (getVeifyDetails != null) {
+      data['GetVeifyDetails'] = getVeifyDetails!.toJson();
     }
     return data;
   }
@@ -74,15 +74,15 @@ class GetVeifyDetails {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['_id'] = this.sId;
-    data['WiFi_IP'] = this.wiFiIP;
-    data['radius'] = this.radius;
-    data['latitude'] = this.latitude;
-    data['longitude'] = this.longitude;
-    data['createdAt'] = this.createdAt;
-    data['updatedAt'] = this.updatedAt;
-    data['__v'] = this.iV;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['_id'] = sId;
+    data['WiFi_IP'] = wiFiIP;
+    data['radius'] = radius;
+    data['latitude'] = latitude;
+    data['longitude'] = longitude;
+    data['createdAt'] = createdAt;
+    data['updatedAt'] = updatedAt;
+    data['__v'] = iV;
     return data;
   }
 }

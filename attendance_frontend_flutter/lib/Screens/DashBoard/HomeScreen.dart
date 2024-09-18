@@ -8,7 +8,7 @@ import 'package:geolocator/geolocator.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+  const HomeScreen({super.key});
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -118,9 +118,9 @@ class _HomeScreenState extends State<HomeScreen> {
       body: IndexedStack(
         index: currentIndex,
         children: [
-          new AttendanceHistory(),
-          new CheckIn_Out(),
-          new Profile(),
+          const AttendanceHistory(),
+          const CheckIn_Out(),
+          const Profile(),
         ],
       ),
       bottomNavigationBar: Container(

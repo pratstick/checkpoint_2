@@ -5,7 +5,7 @@ import 'package:intl/intl.dart';
 import 'package:month_year_picker/month_year_picker.dart';
 
 class AttendanceHistory extends StatefulWidget {
-  const AttendanceHistory({Key? key}) : super(key: key);
+  const AttendanceHistory({super.key});
 
   @override
   State<AttendanceHistory> createState() => _AttendanceHistoryState();
@@ -73,17 +73,17 @@ class _AttendanceHistoryState extends State<AttendanceHistory> {
                                 ),
                                 textButtonTheme: TextButtonThemeData(
                                   style: TextButton.styleFrom(
-                                    primary: primary,
+                                    foregroundColor: primary,
                                   ),
                                 ),
                                 textTheme: const TextTheme(
-                                  headline4: TextStyle(
+                                  headlineMedium: TextStyle(
                                     fontFamily: "NexaBold",
                                   ),
-                                  overline: TextStyle(
+                                  labelSmall: TextStyle(
                                     fontFamily: "NexaBold",
                                   ),
-                                  button: TextStyle(
+                                  labelLarge: TextStyle(
                                     fontFamily: "NexaBold",
                                   ),
                                 ),
@@ -120,7 +120,7 @@ class _AttendanceHistoryState extends State<AttendanceHistory> {
                               .data?.data?.attendace?.getAttendance?.length,
                           itemBuilder: (context, index) {
                             return (snapshots.data?.data?.attendace
-                                        ?.getAttendance![index]?.month) ==
+                                        ?.getAttendance![index].month) ==
                                     _month.toString()
                                 ? Container(
                                     margin: EdgeInsets.only(
@@ -164,7 +164,7 @@ class _AttendanceHistoryState extends State<AttendanceHistory> {
                                                         ?.attendace
                                                         ?.getAttendance![
                                                             index]
-                                                        ?.month)
+                                                        .month)
                                                     .toString(),
                                                 style: TextStyle(
                                                   fontFamily: "NexaBold",
@@ -199,7 +199,7 @@ class _AttendanceHistoryState extends State<AttendanceHistory> {
                                                         ?.attendace
                                                         ?.getAttendance![
                                                             index]
-                                                        ?.checkIn)
+                                                        .checkIn)
                                                     .toString(),
                                                 style: TextStyle(
                                                   fontFamily: "NexaBold",
@@ -233,7 +233,7 @@ class _AttendanceHistoryState extends State<AttendanceHistory> {
                                                         ?.attendace
                                                         ?.getAttendance![
                                                             index]
-                                                        ?.checkOut)
+                                                        .checkOut)
                                                     .toString(),
                                                 style: TextStyle(
                                                   fontFamily: "NexaBold",
@@ -249,7 +249,7 @@ class _AttendanceHistoryState extends State<AttendanceHistory> {
                                   )
                                 : const SizedBox();
                           })
-                      : SizedBox();
+                      : const SizedBox();
                 },
               ),
             ),

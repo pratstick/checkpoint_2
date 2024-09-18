@@ -8,13 +8,13 @@ class LoginModel {
   LoginModel.fromJson(Map<String, dynamic> json) {
     status = json['status'];
     message = json['message'];
-    data = json['data'] != null ? new Data.fromJson(json['data']) : null;
+    data = json['data'] != null ? Data.fromJson(json['data']) : null;
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['status'] = this.status;
-    data['message'] = this.message;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['status'] = status;
+    data['message'] = message;
     if (this.data != null) {
       data['data'] = this.data!.toJson();
     }
@@ -32,17 +32,17 @@ class Data {
   Data.fromJson(Map<String, dynamic> json) {
     accessToken = json['Access_token'];
     details =
-        json['details'] != null ? new Details.fromJson(json['details']) : null;
+        json['details'] != null ? Details.fromJson(json['details']) : null;
     isAdmin = json['isAdmin'];
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['Access_token'] = this.accessToken;
-    if (this.details != null) {
-      data['details'] = this.details!.toJson();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['Access_token'] = accessToken;
+    if (details != null) {
+      data['details'] = details!.toJson();
     }
-    data['isAdmin'] = this.isAdmin;
+    data['isAdmin'] = isAdmin;
     return data;
   }
 }
@@ -81,23 +81,23 @@ class Details {
     if (json['Attendance'] != null) {
       attendance = <Attendance>[];
       json['Attendance'].forEach((v) {
-        attendance!.add(new Attendance.fromJson(v));
+        attendance!.add(Attendance.fromJson(v));
       });
     }
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['_id'] = this.sId;
-    data['EmployeeID'] = this.employeeID;
-    data['EmployeeName'] = this.employeeName;
-    data['mobileNo'] = this.mobileNo;
-    data['email'] = this.email;
-    data['createdAt'] = this.createdAt;
-    data['updatedAt'] = this.updatedAt;
-    data['__v'] = this.iV;
-    if (this.attendance != null) {
-      data['Attendance'] = this.attendance!.map((v) => v.toJson()).toList();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['_id'] = sId;
+    data['EmployeeID'] = employeeID;
+    data['EmployeeName'] = employeeName;
+    data['mobileNo'] = mobileNo;
+    data['email'] = email;
+    data['createdAt'] = createdAt;
+    data['updatedAt'] = updatedAt;
+    data['__v'] = iV;
+    if (attendance != null) {
+      data['Attendance'] = attendance!.map((v) => v.toJson()).toList();
     }
     return data;
   }
@@ -141,17 +141,17 @@ class Attendance {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['Month'] = this.month;
-    data['WeekDay'] = this.weekDay;
-    data['CheckIn'] = this.checkIn;
-    data['_id'] = this.sId;
-    data['createdAt'] = this.createdAt;
-    data['updatedAt'] = this.updatedAt;
-    data['__v'] = this.iV;
-    data['EmployeeID'] = this.employeeID;
-    data['EmployeeName'] = this.employeeName;
-    data['Date'] = this.date;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['Month'] = month;
+    data['WeekDay'] = weekDay;
+    data['CheckIn'] = checkIn;
+    data['_id'] = sId;
+    data['createdAt'] = createdAt;
+    data['updatedAt'] = updatedAt;
+    data['__v'] = iV;
+    data['EmployeeID'] = employeeID;
+    data['EmployeeName'] = employeeName;
+    data['Date'] = date;
     return data;
   }
 }

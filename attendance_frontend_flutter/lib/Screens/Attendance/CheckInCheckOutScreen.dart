@@ -10,7 +10,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:slide_to_act/slide_to_act.dart';
 
 class CheckIn_Out extends StatefulWidget {
-  const CheckIn_Out({Key? key}) : super(key: key);
+  const CheckIn_Out({super.key});
 
   @override
   State<CheckIn_Out> createState() => _CheckIn_OutState();
@@ -64,10 +64,10 @@ class _CheckIn_OutState extends State<CheckIn_Out> {
       final SharedPreferences prefs = await _prefs;
       AttendanceModel data = await GettingAttendance().Check();
       var length = data.data?.attendace?.getAttendance?.length;
-      String? check_In = data
+      String? checkIn = data
           .data?.attendace?.getAttendance![length!.toInt() - 1].checkIn
           .toString();
-      String? check_Out = data
+      String? checkOut = data
           .data?.attendace?.getAttendance![length!.toInt() - 1].checkOut
           .toString();
 
@@ -77,13 +77,13 @@ class _CheckIn_OutState extends State<CheckIn_Out> {
       prefs.setString("TodayID", TodayID!);
 
       setState(() {
-        if (check_In.toString() != "--/--") {
-          checkIn = check_In!;
+        if (checkIn.toString() != "--/--") {
+          checkIn = checkIn!;
         }
-        if (check_Out.toString() != "--/--") {
-          checkOut = check_Out!;
+        if (checkOut.toString() != "--/--") {
+          checkOut = checkOut!;
         }
-        if (check_Out.toString() == "--/--" && check_In.toString() == "--/--") {
+        if (checkOut.toString() == "--/--" && checkIn.toString() == "--/--") {
           checkIn = "--/--";
           checkOut = "--/--";
         }
@@ -131,8 +131,9 @@ class _CheckIn_OutState extends State<CheckIn_Out> {
         prefs.setString("TodayID", TodayID!);
 
         print("Empty Data Uploaded Successfully ...");
-      } else
+      } else {
         print("Empty Data couldn't Uploaded Successfully ...");
+      }
     } catch (e) {}
   }
 
@@ -161,7 +162,7 @@ class _CheckIn_OutState extends State<CheckIn_Out> {
           Container(
             alignment: Alignment.centerLeft,
             child: Text(
-              "Employee " + EmployeeID,
+              "Employee $EmployeeID",
               style: TextStyle(
                 fontFamily: "NexaBold",
                 fontSize: screenWidth / 18,

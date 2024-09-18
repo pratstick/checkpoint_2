@@ -11,7 +11,7 @@ String URL = "http://192.168.0.106:5000/";
 class LogIN {
   LogIN();
   Future<LoginModel> Log_In(EmployeeID, password) async {
-    var url = URL + "api/auth/login";
+    var url = "${URL}api/auth/login";
     http.Response response = await http.post(Uri.parse(url),
         headers: {"content-type": "application/json"},
         body: json.encode({
@@ -29,15 +29,15 @@ class VerifyDetail {
   VerifyDetail();
 
   Future<VerifyDetailModel> Verify_Detail() async {
-    final Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
-    final SharedPreferences prefs = await _prefs;
-    var url = URL + "api/addverifydetail";
+    final Future<SharedPreferences> prefs0 = SharedPreferences.getInstance();
+    final SharedPreferences prefs = await prefs0;
+    var url = "${URL}api/addverifydetail";
     http.Response response = await http.get(Uri.parse(url), headers: {
       'Content-Type': 'application/json',
       'Cookie': "access_token=${prefs.getString("Token")}"
     });
     var data = json.decode(response.body);
-    print("VerifyDetail" + response.body);
+    print("VerifyDetail${response.body}");
     return VerifyDetailModel.fromJson(data);
   }
 }
@@ -47,10 +47,10 @@ class PostingEmptyAttendance {
   PostingEmptyAttendance();
   Future<AttendanceModel> CheckIn(
       Month, WeekDay, CheckIn, CheckOut, Date) async {
-    final Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
-    final SharedPreferences prefs = await _prefs;
+    final Future<SharedPreferences> prefs0 = SharedPreferences.getInstance();
+    final SharedPreferences prefs = await prefs0;
     var url =
-        URL + "api/attendace/" + prefs.getString("EmployeeUniqID").toString();
+        "${URL}api/attendace/${prefs.getString("EmployeeUniqID")}";
 
     http.Response response = await http.post(Uri.parse(url),
         headers: {
@@ -74,13 +74,9 @@ class PostingEmptyAttendance {
 class PuttingCheckinAttendance {
   PuttingCheckinAttendance();
   Future<AttendanceModel> CheckIn(CheckIn) async {
-    final Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
-    final SharedPreferences prefs = await _prefs;
-    var url = URL +
-        "api/attendace/" +
-        prefs.getString("EmployeeUniqID").toString() +
-        "/" +
-        prefs.getString("TodayID").toString();
+    final Future<SharedPreferences> prefs0 = SharedPreferences.getInstance();
+    final SharedPreferences prefs = await prefs0;
+    var url = "${URL}api/attendace/${prefs.getString("EmployeeUniqID")}/${prefs.getString("TodayID")}";
     http.Response response = await http.put(Uri.parse(url),
         headers: {
           "content-type": "application/json",
@@ -99,13 +95,9 @@ class PuttingCheckinAttendance {
 class PuttingCheckoutAttendance {
   PuttingCheckoutAttendance();
   Future<AttendanceModel> CheckOut(CheckOut) async {
-    final Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
-    final SharedPreferences prefs = await _prefs;
-    var url = URL +
-        "api/attendace/" +
-        prefs.getString("EmployeeUniqID").toString() +
-        "/" +
-        prefs.getString("TodayID").toString();
+    final Future<SharedPreferences> prefs0 = SharedPreferences.getInstance();
+    final SharedPreferences prefs = await prefs0;
+    var url = "${URL}api/attendace/${prefs.getString("EmployeeUniqID")}/${prefs.getString("TodayID")}";
     http.Response response = await http.put(Uri.parse(url),
         headers: {
           "content-type": "application/json",
@@ -129,10 +121,10 @@ class PuttingCheckoutAttendance {
 class GettingAttendance {
   GettingAttendance();
   Future<AttendanceModel> Check() async {
-    final Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
-    final SharedPreferences prefs = await _prefs;
+    final Future<SharedPreferences> prefs0 = SharedPreferences.getInstance();
+    final SharedPreferences prefs = await prefs0;
     var url =
-        URL + "api/attendace/" + prefs.getString("EmployeeUniqID").toString();
+        "${URL}api/attendace/${prefs.getString("EmployeeUniqID")}";
     http.Response response = await http.get(Uri.parse(url), headers: {
       "content-type": "application/json",
       'Cookie': "access_token=${prefs.getString("Token")}"
