@@ -1,20 +1,20 @@
-import 'package:attendance_frontend_flutter/NodeJS_API/Api.dart';
-import 'package:attendance_frontend_flutter/NodeJS_Models/LoginModel.dart';
 import 'package:flutter/material.dart';
 import 'package:attendance_frontend_flutter/Screens/DashBoard/HomeScreen.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:attendance_frontend_flutter/NodeJS_Models/LoginModel.dart'; 
+import 'package:attendance_frontend_flutter/lib/NodeJS_Api/Api.dart'; 
 
 class LoginScreen extends StatefulWidget {
-  const LoginScreen({Key? key}) : super(key: key);
+  const LoginScreen({super.key});
 
   @override
   State<LoginScreen> createState() => _LoginScreenState();
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  TextEditingController idController = TextEditingController();
-  TextEditingController passController = TextEditingController();
+  final TextEditingController idController = TextEditingController();
+  final TextEditingController passController = TextEditingController();
 
   final Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
 
@@ -28,19 +28,18 @@ class _LoginScreenState extends State<LoginScreen> {
 
     FocusScope.of(context).unfocus();
 
-    String EmployeeID = idController.text.trim();
+    String employeeID = idController.text.trim();
     String password = passController.text.trim();
 
-    if (EmployeeID.isEmpty) {
+    if (employeeID.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
         content: Text(
-          "Please Enter EmployeeID !!!",
+          "Please Enter Employee ID !!!",
           style: TextStyle(
             color: Color(0xffeef444c),
             fontFamily: "NexaBold",
           ),
         ),
-        // backgroundColor: Color(0xffeef444c),
       ));
     } else if (password.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
@@ -51,13 +50,11 @@ class _LoginScreenState extends State<LoginScreen> {
             fontFamily: "NexaBold",
           ),
         ),
-        // backgroundColor: Color(0xffeef444c),
       ));
     } else {
-      LoginModel data = await LogIN().Log_In(EmployeeID, password);
+      LoginModel data = await LogIN().Log_In(employeeID, password);
 
       if (data.status.toString() == "404") {
-        print("User Not Found !!!");
         ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
           content: Text("User Not Found !!!",
               style: TextStyle(
@@ -76,15 +73,15 @@ class _LoginScreenState extends State<LoginScreen> {
           ),
         ));
       } else if (data.status.toString() == "200") {
-        var Token = data.data?.accessToken.toString();
-        var EmployeeID = data.data?.details?.employeeID.toString();
-        var EmployeeUniqID = data.data?.details?.sId;
-        var EmployeeName = data.data?.details?.employeeName.toString();
+        var token = data.data?.accessToken.toString();
+        var employeeID = data.data?.details?.employeeID.toString();
+        var employeeUniqID = data.data?.details?.sId;
+        var employeeName = data.data?.details?.employeeName.toString();
 
-        prefs.setString("Token", Token!);
-        prefs.setString("EmployeeID", EmployeeID!);
-        prefs.setString("EmployeeName", EmployeeName!);
-        prefs.setString("EmployeeUniqID", EmployeeUniqID!);
+        prefs.setString("Token", token!);
+        prefs.setString("EmployeeID", employeeID!);
+        prefs.setString("EmployeeName", employeeName!);
+        prefs.setString("EmployeeUniqID", employeeUniqID!);
         ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
           content: Text(
             "Employee Logged In Successfully !",
@@ -119,9 +116,9 @@ class _LoginScreenState extends State<LoginScreen> {
               : Container(
                   height: screenHeight / 2.5,
                   width: screenWidth,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     color: Color(0xff3f51b5),
-                    borderRadius: const BorderRadius.only(
+                    borderRadius: BorderRadius.only(
                       bottomRight: Radius.circular(70),
                     ),
                   ),
@@ -166,9 +163,9 @@ class _LoginScreenState extends State<LoginScreen> {
                     height: 60,
                     width: screenWidth,
                     margin: EdgeInsets.only(top: screenHeight / 40),
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       color: Color(0xff3f51b5),
-                      borderRadius: const BorderRadius.all(Radius.circular(30)),
+                      borderRadius: BorderRadius.all(Radius.circular(30)),
                     ),
                     child: Center(
                       child: Text(
@@ -226,7 +223,7 @@ class _LoginScreenState extends State<LoginScreen> {
             width: screenWidth / 6,
             child: Icon(
               icon,
-              color: Color(0xff3f51b5),
+              color: const Color(0xff3f51b5),
               size: screenWidth / 15,
             ),
           ),
