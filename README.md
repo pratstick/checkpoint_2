@@ -1,4 +1,4 @@
-# Smart Attendance Tracking System
+# CheckPoint - Smart Attendance Tracking System
 
 ## Overview
 The **Smart Attendance Tracking System** is a mobile application designed to automate employee attendance tracking using geolocation technology. The app streamlines the process of check-ins and check-outs by logging attendance when employees enter and leave the designated office premises or offsite work locations. This solution aims to enhance operational efficiency, reduce manual attendance tracking errors, and provide employees with a seamless experience for managing their work-related movements.
