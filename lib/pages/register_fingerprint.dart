@@ -180,3 +180,4 @@ class _RegisterFingerprintState extends State<RegisterFingerprint> {
 }
 // Fingerprint auth
 // Fingerprint auth
+// Fingerprint auth
