@@ -257,3 +257,4 @@ Future<void> markAttendance(BuildContext context, LocalAuthentication auth, Stri
 
 // Attendance optimization
 // Attendance optimization
+// Attendance optimization
