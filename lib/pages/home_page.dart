@@ -300,3 +300,4 @@ class _EmployeeHomePageState extends State<EmployeeHomePage> with SingleTickerPr
 }
 // Performance optimization
 // Performance optimization
+// Performance optimization
