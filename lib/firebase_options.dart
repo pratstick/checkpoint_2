@@ -41,7 +41,7 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyCQ0nKDQOrQFpII_wQr5r6HhO9rlZfPhFE',
+    apiKey: '',
     appId: '1:985825165679:web:20f4ce76e0ddacf133a89a',
     messagingSenderId: '985825165679',
     projectId: 'checkpoint-attendance-2025',
@@ -58,7 +58,7 @@ class DefaultFirebaseOptions {
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyBcwKfBdcunalo6QXZRCuhJqoH5evcenOY',
+    apiKey: '',
     appId: '1:985825165679:ios:4555e48ecf6a6f1a33a89a',
     messagingSenderId: '985825165679',
     projectId: 'checkpoint-attendance-2025',
@@ -67,7 +67,7 @@ class DefaultFirebaseOptions {
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyBcwKfBdcunalo6QXZRCuhJqoH5evcenOY',
+    apiKey: '',
     appId: '1:985825165679:ios:4555e48ecf6a6f1a33a89a',
     messagingSenderId: '985825165679',
     projectId: 'checkpoint-attendance-2025',
@@ -76,7 +76,7 @@ class DefaultFirebaseOptions {
   );
 
   static const FirebaseOptions windows = FirebaseOptions(
-    apiKey: 'AIzaSyCQ0nKDQOrQFpII_wQr5r6HhO9rlZfPhFE',
+    apiKey: '',
     appId: '1:985825165679:web:f252df93aadd151a33a89a',
     messagingSenderId: '985825165679',
     projectId: 'checkpoint-attendance-2025',
