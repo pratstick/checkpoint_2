@@ -17,10 +17,7 @@ import 'package:flutter/foundation.dart'
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
-      throw UnsupportedError(
-        'DefaultFirebaseOptions have not been configured for web - '
-        'you can reconfigure this by running the FlutterFire CLI again.',
-      );
+      return web;
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
@@ -28,15 +25,9 @@ class DefaultFirebaseOptions {
       case TargetPlatform.iOS:
         return ios;
       case TargetPlatform.macOS:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for macos - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return macos;
       case TargetPlatform.windows:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for windows - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return windows;
       case TargetPlatform.linux:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for linux - '
@@ -49,27 +40,48 @@ class DefaultFirebaseOptions {
     }
   }
 
+  static const FirebaseOptions web = FirebaseOptions(
+    apiKey: 'AIzaSyCQ0nKDQOrQFpII_wQr5r6HhO9rlZfPhFE',
+    appId: '1:985825165679:web:20f4ce76e0ddacf133a89a',
+    messagingSenderId: '985825165679',
+    projectId: 'checkpoint-attendance-2025',
+    authDomain: 'checkpoint-attendance-2025.firebaseapp.com',
+    storageBucket: 'checkpoint-attendance-2025.firebasestorage.app',
+  );
+
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyAHTmhuVqeCoVp_Yo_HNBQHjdZNwCBEXnY',
-    appId: '1:877164736157:android:50908b3f8217db4b772e74',
-    messagingSenderId: '877164736157',
-    projectId: 'hapapp-d5c6b',
-    storageBucket: 'hapapp-d5c6b.appspot.com',
+    apiKey: '',
+    appId: '1:985825165679:android:ed726b7d2adea4a433a89a',
+    messagingSenderId: '985825165679',
+    projectId: 'checkpoint-attendance-2025',
+    storageBucket: 'checkpoint-attendance-2025.firebasestorage.app',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyCLOdlvJuE31kjrhTyf5qCOo3YEh82V_WE',
-    appId: '1:877164736157:ios:7a22eff387e6ce45772e74',
-    messagingSenderId: '877164736157',
-    projectId: 'hapapp-d5c6b',
-    storageBucket: 'hapapp-d5c6b.appspot.com',
-    iosBundleId: 'com.example.haapp',
+    apiKey: 'AIzaSyBcwKfBdcunalo6QXZRCuhJqoH5evcenOY',
+    appId: '1:985825165679:ios:4555e48ecf6a6f1a33a89a',
+    messagingSenderId: '985825165679',
+    projectId: 'checkpoint-attendance-2025',
+    storageBucket: 'checkpoint-attendance-2025.firebasestorage.app',
+    iosBundleId: 'com.example.hbap',
   );
+
+  static const FirebaseOptions macos = FirebaseOptions(
+    apiKey: 'AIzaSyBcwKfBdcunalo6QXZRCuhJqoH5evcenOY',
+    appId: '1:985825165679:ios:4555e48ecf6a6f1a33a89a',
+    messagingSenderId: '985825165679',
+    projectId: 'checkpoint-attendance-2025',
+    storageBucket: 'checkpoint-attendance-2025.firebasestorage.app',
+    iosBundleId: 'com.example.hbap',
+  );
+
+  static const FirebaseOptions windows = FirebaseOptions(
+    apiKey: 'AIzaSyCQ0nKDQOrQFpII_wQr5r6HhO9rlZfPhFE',
+    appId: '1:985825165679:web:f252df93aadd151a33a89a',
+    messagingSenderId: '985825165679',
+    projectId: 'checkpoint-attendance-2025',
+    authDomain: 'checkpoint-attendance-2025.firebaseapp.com',
+    storageBucket: 'checkpoint-attendance-2025.firebasestorage.app',
+  );
+
 }
-// Firebase config update
-// Firebase config
-// API update
-// Firebase config
-// API update
-// Firebase config
-// API update

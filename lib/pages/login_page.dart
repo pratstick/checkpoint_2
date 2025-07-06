@@ -56,7 +56,7 @@ class _LoginPageState extends State<LoginPage> {
         if (role == 'Student') {
           Navigator.pushReplacement(
             context,
-            MaterialPageRoute(builder: (context) => const StudentHomePage()),
+            MaterialPageRoute(builder: (context) => const EmployeeHomePage()),
           );
         } else if (role == 'Supervisor') {
           Navigator.pushReplacement(
